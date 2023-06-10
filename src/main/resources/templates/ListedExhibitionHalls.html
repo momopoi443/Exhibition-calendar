@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Exhibition Halls</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th> Id </th>
+                <th> Hall Name </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="exhibitionHall : ${exhibitionHalls}">
+                <td>
+                    <span th:text="${exhibitionHall.id}"> Id </span>
+                </td>
+                <td>
+                    <a th:href="@{/api/v1/exposition(hallId=${exhibitionHall.id})}">
+                        <span th:text="${exhibitionHall.hallName}"> Hall Name </span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

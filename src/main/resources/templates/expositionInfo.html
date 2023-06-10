@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exposition information</title>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th> Id </th>
+    <th> Name </th>
+    <th> Hall name </th>
+    <th> Ticket price </th>
+    <th> Theme name </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <span th:text="${exposition.id}"> Id </span>
+    </td>
+    <td>
+        <span th:text="${exposition.expositionName}"> Exposition Name </span>
+    </td>
+    <td>
+      <a th:href="@{/api/v1/exhibitionHalls/{hallId}(hallId = ${exposition.hall.id})}">
+        <span th:text="${exposition.hall.hallName}"> Hall name </span>
+      </a>
+    </td>
+    <td>
+      <span th:text="${exposition.ticketPrice}"> Ticket price </span>
+    </td>
+    <td>
+      <span th:text="${exposition.theme.themeName}"> Theme name </span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

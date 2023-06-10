@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket information</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Id </th>
+        <th> Exposition Name </th>
+        <th> Payment id </th>
+        <th> Owner name </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <span th:text="${ticket.id}"> Id </span>
+        </td>
+        <td>
+            <a th:href="@{/api/v1/exposition/{expositionId}(expositionId = ${ticket.exposition.id})}">
+                <span th:text="${ticket.exposition.expositionName}"> Exposition Name </span>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/api/v1/payment/{paymentId}(paymentId = ${ticket.payment.id})}">
+                <span th:text="${ticket.payment.id}"> Payment id </span>
+            </a>
+        </td>
+        <td>
+            <span th:text="${ticket.owner.userName}"> Owner name </span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
