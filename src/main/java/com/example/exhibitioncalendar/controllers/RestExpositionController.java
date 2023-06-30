@@ -2,30 +2,26 @@ package com.example.exhibitioncalendar.controllers;
 
 import com.example.exhibitioncalendar.entities.Exposition;
 import com.example.exhibitioncalendar.services.ExpositionService;
-import com.example.exhibitioncalendar.services.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.mbeans.SparseUserDatabaseMBean;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
-public class ExpositionController {
+public class RestExpositionController {
     public static final String EXPOSITION_PATH = "/api/v1/exposition";
     public static final String EXPOSITION_PATH_ID = EXPOSITION_PATH + "/{expositionId}";
 
     private final ExpositionService expositionService;
 
     @GetMapping(EXPOSITION_PATH)
-    public String listExhibitionHalls(
+    public List<Exposition> listExhibitionHalls(
             @RequestParam(name= "hallId", required=false) Long hallId,
-            @RequestParam(name= "themeId", required=false) Long themeId,
-            Model model
+            @RequestParam(name= "themeId", required=false) Long themeId
     ) {
         List<Exposition> expositions;
 
@@ -39,19 +35,11 @@ public class ExpositionController {
             expositions = expositionService.getAllExpositions();
         }
 
-        model.addAttribute("expositions", expositions);
-
-        return "ListedExpositions";
+        return expositions;
     }
 
     @GetMapping(EXPOSITION_PATH_ID)
-    public String getExpositionById(@PathVariable Long expositionId, Model model) {
-        Exposition exposition = expositionService
-                .getExpositionById(expositionId)
-                .orElseThrow(() -> new NotFoundException("No exposition with such id"));
-
-        model.addAttribute("exposition", exposition);
-
-        return "expositionInfo";
+    public Exposition getExpositionById(@PathVariable Long expositionId) {
+        return expositionService.getExpositionById(expositionId);
     }
 }

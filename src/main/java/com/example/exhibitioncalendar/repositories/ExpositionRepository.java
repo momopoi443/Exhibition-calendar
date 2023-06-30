@@ -14,5 +14,4 @@ public interface ExpositionRepository extends JpaRepository<Exposition, Long> {
     List<Exposition> findAllByTheme(Theme theme);
 
     List<Exposition> findAllByHallAndTheme(ExhibitionHall hall, Theme theme);
-
 }

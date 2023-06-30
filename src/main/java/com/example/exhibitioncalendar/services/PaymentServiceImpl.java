@@ -7,13 +7,13 @@ import com.example.exhibitioncalendar.entities.User;
 import com.example.exhibitioncalendar.repositories.PaymentRepository;
 import com.example.exhibitioncalendar.services.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class PaymentServiceImpl implements PaymentService {
 
     private final ExpositionService expositionService;
@@ -24,12 +24,8 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     @Transactional
     public Payment createPayment(Long userId, Long expositionId) {
-        User owner = userService
-                .getUserById(userId)
-                .orElseThrow(() -> new NotFoundException("No user with such id"));
-        Exposition exposition = expositionService
-                .getExpositionById(expositionId)
-                .orElseThrow(() -> new NotFoundException("No exposition with such id"));
+        User owner = userService.getUserById(userId);
+        Exposition exposition = expositionService.getExpositionById(expositionId);
 
         userService.decreaseUserBalanceBy(owner.getId(), exposition.getTicketPrice());
 
@@ -46,16 +42,28 @@ public class PaymentServiceImpl implements PaymentService {
                 .build();
         payment = saveNewPayment(payment);
 
+        log.info("Created and saved new Payment with associated Ticket");
+
         return payment;
     }
 
     @Override
     public Payment saveNewPayment(Payment newPayment) {
-        return paymentRepository.save(newPayment);
+        Payment savedPayment = paymentRepository.save(newPayment);
+
+        log.info("Saved new Payment with " + savedPayment.getId() + " id into database");
+
+        return savedPayment;
     }
 
     @Override
-    public Optional<Payment> getPaymentById(Long paymentId) {
-        return paymentRepository.findById(paymentId);
+    public Payment getPaymentById(Long paymentId) {
+        return paymentRepository
+                .findById(paymentId)
+                .orElseThrow(() -> {
+                    var ex = new NotFoundException("No payment with such id");
+                    log.error(ex.getLocalizedMessage());
+                    return ex;
+                });
     }
 }

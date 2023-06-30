@@ -2,29 +2,21 @@ package com.example.exhibitioncalendar.controllers;
 
 import com.example.exhibitioncalendar.entities.Ticket;
 import com.example.exhibitioncalendar.services.TicketService;
-import com.example.exhibitioncalendar.services.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
-public class TicketController {
+public class RestTicketController {
     public static final String TICKET_PATH = "/api/v1/ticket";
     public static final String TICKET_PATH_ID = TICKET_PATH + "/{ticketId}";
 
     private final TicketService ticketService;
 
     @GetMapping(TICKET_PATH_ID)
-    public String getTicketInfoById(@PathVariable Long ticketId, Model model) {
-        Ticket ticket = ticketService
-                .getTicketById(ticketId)
-                .orElseThrow(() -> new NotFoundException("No ticket with such id"));
-
-        model.addAttribute("ticket", ticket);
-
-        return "ticketInfo";
+    public Ticket getTicketInfoById(@PathVariable Long ticketId) {
+        return ticketService.getTicketById(ticketId);
     }
 }

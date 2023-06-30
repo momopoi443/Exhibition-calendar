@@ -3,7 +3,6 @@ package com.example.exhibitioncalendar.services;
 import com.example.exhibitioncalendar.entities.Exposition;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ExpositionService {
 
@@ -15,5 +14,5 @@ public interface ExpositionService {
 
     List<Exposition> getAllExpositions();
 
-    Optional<Exposition> getExpositionById(Long expositionId);
+    Exposition getExpositionById(Long expositionId);
 }
