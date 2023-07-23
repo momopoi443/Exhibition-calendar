@@ -1,8 +1,8 @@
 package com.example.exhibitioncalendar.services;
 
-import com.example.exhibitioncalendar.entities.ExhibitionHall;
-import com.example.exhibitioncalendar.entities.Exposition;
-import com.example.exhibitioncalendar.entities.Theme;
+import com.example.exhibitioncalendar.dataModels.entities.ExhibitionHall;
+import com.example.exhibitioncalendar.dataModels.entities.Exposition;
+import com.example.exhibitioncalendar.dataModels.entities.Theme;
 import com.example.exhibitioncalendar.repositories.ExpositionRepository;
 import com.example.exhibitioncalendar.services.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;

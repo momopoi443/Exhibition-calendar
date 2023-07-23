@@ -1,4 +1,4 @@
-package com.example.exhibitioncalendar.entities;
+package com.example.exhibitioncalendar.dataModels.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 @Entity
@@ -25,5 +25,5 @@ public class ExhibitionHall {
     private String hallName;
 
     @OneToMany(mappedBy = "hall")
-    private Set<Exposition> expositions;
+    private List<Exposition> expositions;
 }

@@ -1,8 +1,8 @@
 package com.example.exhibitioncalendar.repositories;
 
-import com.example.exhibitioncalendar.entities.ExhibitionHall;
-import com.example.exhibitioncalendar.entities.Exposition;
-import com.example.exhibitioncalendar.entities.Theme;
+import com.example.exhibitioncalendar.dataModels.entities.ExhibitionHall;
+import com.example.exhibitioncalendar.dataModels.entities.Exposition;
+import com.example.exhibitioncalendar.dataModels.entities.Theme;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.example.exhibitioncalendar.services;
 
-import com.example.exhibitioncalendar.entities.Exposition;
+import com.example.exhibitioncalendar.dataModels.entities.Exposition;
 
 import java.util.List;
 

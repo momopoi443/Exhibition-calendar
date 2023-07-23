@@ -1,6 +1,6 @@
 package com.example.exhibitioncalendar.services;
 
-import com.example.exhibitioncalendar.entities.Payment;
+import com.example.exhibitioncalendar.dataModels.entities.Payment;
 
 public interface PaymentService {
 

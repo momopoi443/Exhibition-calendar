@@ -1,6 +1,6 @@
 package com.example.exhibitioncalendar.services;
 
-import com.example.exhibitioncalendar.entities.Theme;
+import com.example.exhibitioncalendar.dataModels.entities.Theme;
 import com.example.exhibitioncalendar.repositories.ThemeRepository;
 import com.example.exhibitioncalendar.services.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;

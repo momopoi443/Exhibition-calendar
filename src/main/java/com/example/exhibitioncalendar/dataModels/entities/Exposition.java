@@ -1,4 +1,4 @@
-package com.example.exhibitioncalendar.entities;
+package com.example.exhibitioncalendar.dataModels.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -27,8 +27,8 @@ public class Exposition {
     @Column(name = "ticket_price")
     private Double ticketPrice;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "hall_id", nullable = false)
+    @ManyToOne//(cascade = CascadeType.ALL)
+    @JoinColumn(name = "hall_id", referencedColumnName = "hall_id", nullable = false)
     private ExhibitionHall hall;
 
     @ManyToOne(cascade = CascadeType.ALL)

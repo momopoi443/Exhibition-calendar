@@ -1,6 +1,6 @@
 package com.example.exhibitioncalendar.services;
 
-import com.example.exhibitioncalendar.entities.User;
+import com.example.exhibitioncalendar.dataModels.entities.User;
 import com.example.exhibitioncalendar.repositories.UserRepository;
 import com.example.exhibitioncalendar.services.exceptions.NotEnoughMoneyException;
 import com.example.exhibitioncalendar.services.exceptions.NotFoundException;

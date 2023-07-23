@@ -1,6 +1,6 @@
 package com.example.exhibitioncalendar.services;
 
-import com.example.exhibitioncalendar.entities.User;
+import com.example.exhibitioncalendar.dataModels.entities.User;
 
 
 public interface UserService {

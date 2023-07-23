@@ -1,6 +1,6 @@
 package com.example.exhibitioncalendar.services;
 
-import com.example.exhibitioncalendar.entities.Ticket;
+import com.example.exhibitioncalendar.dataModels.entities.Ticket;
 
 public interface TicketService {
 

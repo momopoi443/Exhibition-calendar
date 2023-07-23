@@ -1,6 +1,6 @@
 package com.example.exhibitioncalendar.controllers;
 
-import com.example.exhibitioncalendar.entities.Payment;
+import com.example.exhibitioncalendar.dataModels.entities.Payment;
 import com.example.exhibitioncalendar.services.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

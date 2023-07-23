@@ -1,6 +1,6 @@
 package com.example.exhibitioncalendar.controllers;
 
-import com.example.exhibitioncalendar.entities.ExhibitionHall;
+import com.example.exhibitioncalendar.dataModels.dtos.ExhibitionHallResponseDTO;
 import com.example.exhibitioncalendar.services.ExhibitionHallService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +18,12 @@ public class RestExhibitionHallController {
     private final ExhibitionHallService exhibitionHallService;
 
     @GetMapping(EXHIBITION_HALL_PATH)
-    public List<ExhibitionHall> listExhibitionHalls() {
-        return exhibitionHallService.listExhibitionHalls();
+    public List<ExhibitionHallResponseDTO> listExhibitionHalls() {
+        return exhibitionHallService.listExhibitionHallResponseDTOs();
     }
 
     @GetMapping(EXHIBITION_HALL_PATH_ID)
-    public ExhibitionHall getExhibitionHallById(@PathVariable Long hallId) {
-        return exhibitionHallService.getHallById(hallId);
+    public ExhibitionHallResponseDTO getExhibitionHallById(@PathVariable Long hallId) {
+        return exhibitionHallService.getHallResponseDTObyId(hallId);
     }
 }

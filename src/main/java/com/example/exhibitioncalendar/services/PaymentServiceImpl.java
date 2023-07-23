@@ -1,9 +1,9 @@
 package com.example.exhibitioncalendar.services;
 
-import com.example.exhibitioncalendar.entities.Exposition;
-import com.example.exhibitioncalendar.entities.Payment;
-import com.example.exhibitioncalendar.entities.Ticket;
-import com.example.exhibitioncalendar.entities.User;
+import com.example.exhibitioncalendar.dataModels.entities.Exposition;
+import com.example.exhibitioncalendar.dataModels.entities.Payment;
+import com.example.exhibitioncalendar.dataModels.entities.Ticket;
+import com.example.exhibitioncalendar.dataModels.entities.User;
 import com.example.exhibitioncalendar.repositories.PaymentRepository;
 import com.example.exhibitioncalendar.services.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package com.example.exhibitioncalendar.controllers;
 
-import com.example.exhibitioncalendar.entities.Exposition;
+import com.example.exhibitioncalendar.dataModels.entities.Exposition;
 import com.example.exhibitioncalendar.services.ExpositionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.example.exhibitioncalendar.entities;
+package com.example.exhibitioncalendar.dataModels.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

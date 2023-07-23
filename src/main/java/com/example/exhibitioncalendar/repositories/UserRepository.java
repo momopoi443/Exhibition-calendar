@@ -1,6 +1,6 @@
 package com.example.exhibitioncalendar.repositories;
 
-import com.example.exhibitioncalendar.entities.User;
+import com.example.exhibitioncalendar.dataModels.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
